@@ -1,71 +1,110 @@
 
-const prompt = require("prompt-sync")({sigint:true})
+// const prompt = require("prompt-sync")({sigint:true})
 const print = console.log.bind()
 
-// 1. Named Function
-function Joel(user)
-{
-  console.log(`Hello ${user}, Good Evening...`)
-}
+// // 1. Named Function
+// function Joel(user)
+// {
+//   console.log(`Hello ${user}, Good Evening...`)
+// }
 
-Joel('Prajwal')
+// Joel('Prajwal')
 
-print("------------------------------------------------------------")
+// print("------------------------------------------------------------")
 
-// Anonymous function / function  expression
+// // Anonymous function / function  expression
 
-const anoFun = function()
-{
-  console.log("This is Anonymous function")
-}
-anoFun()
+// const anoFun = function()
+// {
+//   console.log("This is Anonymous function")
+// }
+// anoFun()
 
-print("------------------------------------------------------------")
+// print("------------------------------------------------------------")
 
 
-const  userAuth = function(username,password)
-{
-  if(username === "Prajwal" && password === "jsp@123"){
- const userObj =new Object()
- userObj.username=username
- userObj.password=password
- console.log("user credentials: ",userObj)
-}else{
-  print("Invalid credentials..")
-}
-};
+// const  userAuth = function(username,password)
+// {
+//   if(username === "Prajwal" && password === "jsp@123"){
+//  const userObj =new Object()
+//  userObj.username=username
+//  userObj.password=password
+//  console.log("user credentials: ",userObj)
+// }else{
+//   print("Invalid credentials..")
+// }
+// };
 
-// const uName = prompt("Enter username : ");
-// const upass = prompt("Enter password : " );
-// userAuth(uName,upass)
+// // const uName = prompt("Enter username : ");
+// // const upass = prompt("Enter password : " );
+// // userAuth(uName,upass)
 
-// Arrrow Function
+// // Arrrow Function
 
-const myFun = () =>{
-  print("ArrowFunction")
-}
+// const myFun = () =>{
+//   print("ArrowFunction")
+// }
 
-myFun()
+// myFun()
 
-const arrFun = type => print(`Hello...i'm an ${type} function.`);
-arrFun("Arrow")
+// const arrFun = type => print(`Hello...i'm an ${type} function.`);
+// arrFun("Arrow")
 
 // 1.Passing MultipleParameters - rest Parameters  : '...nums' instead of writing multiple parameters a,b,c,d,e,f , it converts each and every argument into an array
 // 2. function with return
 // 3.default parameters
 // 4. Exporting and Importing modules
 
-const add = (...nums) =>{
-  print(nums)
-  let res=0  
-  for(let i of nums)
-  {
-    res += i;
-  }
-  // print(res)
-  return res
-};
+// const add = (...nums) =>{
+//   print(nums)
+//   let res=0  
+//   for(let i of nums)
+//   {
+//     res += i;
+//   }
+//   // print(res)
+//   return res
+// };
               
 
-const output = add(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
-console.log("The Addition of first 15 natural Numbers : ",output)
+// const output = add(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)
+// console.log("The Addition of first 15 natural Numbers : ",output)
+
+
+// Default parameters
+
+const userGreet = (user = "Guest") => {
+  print(`Hello ${user} , welocme to page...`)
+};
+
+userGreet("Prajwal")
+userGreet()
+
+
+//5. IIFE - Immediately Invoked Function Expression
+
+// (function()
+// {
+//   console.log("Hello..i'm IIFE")
+// })()
+
+// 6. HIgher Ordered Functions - A Function which accpet another function as parameter 
+
+function mainFunc()
+{
+  console.log("This is Main Function")
+}
+
+function subFunc()
+{
+  console.log("This is sub Function")
+}
+
+mainFunc(subFunc())  // Inner Function executed first
+
+//example
+
+console.log("Submit Data......")
+setTimeout(()=>{
+  console.log("submitted...✅")
+})
